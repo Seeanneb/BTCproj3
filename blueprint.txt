@@ -10,3 +10,5 @@
 5. send bitcoins brings up the prompt asking for the address, amount to send and tx fee wish to be incurred.
 
 6. recieve bitcoins generates a recieve address display qr code
+
+7. Upon Signing up, there mnemonic seed is attached to the account. this mnemonic will generate keyspair (20 at a time). When the user recieves bitcoin from a transaction, the first keypair is used and the second address will be used as the new recieve address etc. When they spend bitcions, the wallet will scan all addressess for all inputs and spend the necessary amount to send.    
