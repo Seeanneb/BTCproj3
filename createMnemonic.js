@@ -38,13 +38,14 @@ function addKeys(){
 	var seed = bip39.mnemonicToSeed(mnemonic)
 	var seedHex = bip39.mnemonicToSeedHex(mnemonic)
 	var hdMaster = bitcoin.HDNode.fromSeedHex(seedHex) 
-	console.log(mnemonic)
+	// console.log(mnemonic)
 
-	var newLenght = keyChain.length + 5;
+	var newLenght = keyChain.length + 10;
 
 	for (var i = keyChain.length; i < newLenght  ; i++) {
 		var key = hdMaster.derivePath('m/' + [i] )
 		keyChain.push(key)
+		console.log(key)
 	}
 	for (var j = 0; j < keyChain.length; j++){
 		var pubKey = keyChain[j].keyPair.getPublicKeyBuffer()
@@ -52,7 +53,7 @@ function addKeys(){
 	    var scriptPubKey = bitcoin.script.scriptHash.output.encode(bitcoin.crypto.hash160(redeemScript))
 	    var address = bitcoin.address.fromOutputScript(scriptPubKey)
 
-	    console.log((i+1) + " " +address)
+	    // console.log((+1) + " " +address)
 	 }
 }
 
