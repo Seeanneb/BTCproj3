@@ -8,6 +8,8 @@ var outputFile = "wallet.dat"
 var entropy = crypto.randomBytes(16)
 var keyChain = []
 var mnemonic = bip39.entropyToMnemonic(entropy.toString('hex'))
+module.exports.keyChain = keyChain
+module.exports.mnemonic = mnemonic
 
 
 function createWallet(){
@@ -45,7 +47,7 @@ function addKeys(){
 	for (var i = keyChain.length; i < newLenght  ; i++) {
 		var key = hdMaster.derivePath('m/' + [i] )
 		keyChain.push(key)
-		console.log(key)
+		
 	}
 	for (var j = 0; j < keyChain.length; j++){
 		var pubKey = keyChain[j].keyPair.getPublicKeyBuffer()
@@ -58,8 +60,8 @@ function addKeys(){
 }
 
 
-createWallet();
+// createWallet();
 // console.log(mnemonicArray)
-addKeys();
+// addKeys();
 
 

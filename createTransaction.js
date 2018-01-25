@@ -1,6 +1,8 @@
 var bitcoin = require('bitcoinjs-lib')
 var request = require('request')
 var prompt = require('cli-prompt')
+var keyChain = require('./createMnemonic')
+var mnemonic = require('./createMnemonic')
 
 var satoshiToBTC = function(value){
 	return value * 0.00000001
